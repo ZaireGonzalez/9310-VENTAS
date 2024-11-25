@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISPOA - Sistema POS Agrícola</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="center">SISPOA</h1>
+        <p class="center">SISTEMA POS AGRÍCOLA</p>
+
+        <!-- Formulario de Registro -->
+        <div id="registro-container">
+            <h2>Formulario de Registro</h2>
+            <form id="registro-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" required><br>
+
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+
+        <!-- Menú de módulos -->
+        <div id="menu-container" style="display: none;">
+            <button class="menu-btn" id="ventas-btn">Ventas</button>
+            <button class="menu-btn" id="anulaciones-btn">Anulaciones</button>
+            <button class="menu-btn" id="cierres-btn">Cierres</button>
+            <button class="menu-btn" id="consulta-btn">Consulta de Saldo</button>
+            <button class="menu-btn" id="configuraciones-btn">Configuraciones</button>
+            <button class="menu-btn" id="pqrs-btn">Peticiones, Quejas o Reclamos</button>
+            <button class="menu-btn" id="inventario-btn">Inventario</button>
+            <button class="menu-btn" id="proveedores-btn">Proveedores</button>
+        </div>
+
+        <!-- Módulos dinámicos -->
+
+        <!-- Modulo de Ventas -->
+        <div class="ventas-container" id="ventas-container" style="display: none;">
+            <h2>Ventas de Cultivos</h2>
+            <table id="ventasTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Producto</th>
+                        <th>Cantidad Vendida (kg)</th>
+                        <th>Valor Total (COP)</th>
+                        <th>Tipo de Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-11-10</td>
+                        <td>Tomate</td>
+                        <td>200</td>
+                        <td>600,000</td>
+                        <td>Tarjeta de Crédito</td>
+                    </tr>
+                    <tr>
+                        <td>2024-11-15</td>
+                        <td>Papá</td>
+                        <td>300</td>
+                        <td>750,000</td>
+                        <td>Transferencia Bancaria</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modulo de Anulaciones -->
+        <div class="anulaciones-container" id="anulaciones-container" style="display: none;">
+            <h2>Anulaciones de Ventas</h2>
+            <table id="anulacionesTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Producto</th>
+                        <th>Cantidad Anulada (kg)</th>
+                        <th>Valor Anulado (COP)</th>
+                        <th>Tipo de Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-11-12</td>
+                        <td>Tomate</td>
+                        <td>50</td>
+                        <td>150,000</td>
+                        <td>Tarjeta de Crédito</td>
+                    </tr>
+                    <tr>
+                        <td>2024-11-16</td>
+                        <td>Papá</td>
+                        <td>100</td>
+                        <td>250,000</td>
+                        <td>Transferencia Bancaria</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modulo de Cierres -->
+        <div class="cierres-container" id="cierres-container" style="display: none;">
+            <h2>Cierres de Caja</h2>
+            <table id="cierresTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo de Cierre</th>
+                        <th>Valor Total (COP)</th>
+                        <th>Impuestos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-11-10</td>
+                        <td>Cierre Diario</td>
+                        <td>1,500,000</td>
+                        <td>150,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modulo de Consulta de Saldo -->
+        <div class="consulta-container" id="consulta-container" style="display: none;">
+            <h2>Consulta de Saldo</h2>
+            <table id="consultaTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Saldo (COP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-11-22</td>
+                        <td>2,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modulo de Peticiones, Quejas o Reclamos -->
+        <div class="pqrs-container" id="pqrs-container" style="display: none;">
+            <h2>Peticiones de los Agricultores</h2>
+            <table id="pqrsTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Nombre del Agricultor</th>
+                        <th>Teléfono</th>
+                        <th>Petición</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-11-20</td>
+                        <td>Juan Pérez</td>
+                        <td>3216549870</td>
+                        <td>Asistencia para la cosecha de tomates</td>
+                        <td>En Proceso</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modulo de Inventario -->
+        <div class="inventario-container" id="inventario-container" style="display: none;">
+            <h2>Inventario de Cultivos</h2>
+            <table id="inventarioTable">
+                <thead>
+                    <tr>
+                        <th>Fecha de Cosecha</th>
+                        <th>Variedad de Cultivo</th>
+                        <th>Cantidad Disponible (kg)</th>
+                        <th>Precio por kg (COP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-11-01</td>
+                        <td>Tomate</td>
+                        <td>500</td>
+                        <td>3,000</td>
+                    </tr>
+                    <tr>
+                        <td>2024-11-10</td>
+                        <td>Papá</td>
+                        <td>800</td>
+                        <td>2,500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modulo de Proveedores -->
+        <div class="proveedores-container" id="proveedores-container" style="display: none;">
+            <h2>Proveedores de Insumos Agrícolas</h2>
+            <table id="proveedoresTable">
+                <thead>
+                    <tr>
+                        <th>Fecha de Entrega</th>
+                        <th>Nombre del Proveedor</th>
+                        <th>Producto Suministrado</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-10-20</td>
+                        <td>AgroSupply</td>
+                        <td>Semillas de Maíz</td>
+                        <td>1000 kg</td>
+                        <td>5,000</td>
+                    </tr>
+                    <tr>
+                        <td>2024-11-15</td>
+                        <td>Fertilizantes del Valle</td>
+                        <td>Fertilizante Nitrogenado</td>
+                        <td>500 kg</td>
+                        <td>7,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
